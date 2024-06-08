@@ -44,18 +44,22 @@ class ItemsToPurchase:
 #       Enter the item quantity:
 #         10
 
-Item_1 = ItemsToPurchase()
-Item_2 = ItemsToPurchase()
+# Constant which defines the number of items in the shopping cart
+number_of_items = 2
 
-print('Item 1')
-Item_1.item_name = input('Enter the item name:')
-Item_1.item_price = float(input('Enter the item price:'))
-Item_1.item_quantity = int(input('Enter the item quantity:'))
+# Create shopping cart with the specified number of items
+Items = []
+for i in range(number_of_items):
+    Items.append(ItemsToPurchase())
 
-print('Item 2')
-Item_2.item_name = input('Enter the item name:')
-Item_2.item_price = float(input('Enter the item price:'))
-Item_2.item_quantity = int(input('Enter the item quantity:'))
+# Put items in the shopping cart
+number = 0
+for x in Items:
+    print('Item {}'.format(number+1))
+    x.item_name = input('Enter the item name:')
+    x.item_price = float(input('Enter the item price:'))
+    x.item_quantity = int(input('Enter the item quantity:'))
+    number += 1
 
 # Step 3: Add the costs of the two items together and output the total cost.
 # 
@@ -65,9 +69,13 @@ Item_2.item_quantity = int(input('Enter the item quantity:'))
 #       Bottled Water 10 @ $1 = $10
 #       Total: $13
 
+total_cost = 0
+number = 0
 print('TOTAL COST')
-Item_1.print_item_cost()
-Item_2.print_item_cost()
-print('Total: ${}'.format(Item_1.item_quantity * Item_1.item_price + Item_2.item_quantity * Item_2.item_price))
+for x in Items:
+    x.print_item_cost()
+    total_cost = total_cost + x.item_quantity * x.item_price
+    number += 1
+print('Total: ${:.2f}'.format(total_cost))
         
 
