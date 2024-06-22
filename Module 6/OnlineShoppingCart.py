@@ -135,4 +135,4 @@ if __name__ == "__main__":
         elif menu_choice == 'i':
             ShoppingCart.print_descriptions() #Implement Output shopping cart menu option. Implement Output item's description menu option
         elif menu_choice == 'o':
-            ShoppingCart.print_total()
+            ShoppingCart.print_total() # Implement Output shopping cart menu option
